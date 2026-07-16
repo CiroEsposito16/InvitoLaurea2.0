@@ -116,9 +116,39 @@ export default function Home() {
     pointer-events-none
   "
 >
-  <div className="pointer-events-auto flex items-center justify-center w-full">
-    <Invitation opened={opened} />
-  </div>
+  <div
+  className={`
+    flex
+    items-center
+    justify-center
+    w-full
+    ${opened ? "pointer-events-auto" : "pointer-events-none"}
+  `}
+>
+  <Invitation opened={opened} />
+</div>
+</motion.div>
+<motion.div
+  animate={{
+    opacity: opened ? 0 : 1,
+    scale: opened ? 0.88 : 1,
+  }}
+  transition={{ duration: 0.8 }}
+  className={`
+    absolute
+    inset-0
+    z-20
+    flex
+    items-center
+    justify-center
+    px-4
+    ${opened ? "pointer-events-none" : "pointer-events-auto"}
+  `}
+>
+  <Envelope
+    opened={opened}
+    onOpen={() => setOpened(true)}
+  />
 </motion.div>
 
         </>
