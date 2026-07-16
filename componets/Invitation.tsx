@@ -363,7 +363,7 @@ export default function Invitation({ opened }: Props) {
             <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent" />
 
             <p className="mt-6 text-[#d4af37]/70 text-xs tracking-[0.45em] uppercase">
-              Project Aurum
+              07 - 09 - 2026
             </p>
 
           </div>
