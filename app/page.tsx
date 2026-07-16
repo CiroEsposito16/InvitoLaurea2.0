@@ -92,7 +92,34 @@ export default function Home() {
 
           {/* INVITO */}
 
-          <Invitation opened={opened} />
+          {/* INVITO */}
+
+<motion.div
+  initial={{ opacity: 0, scale: 0.85 }}
+  animate={{
+    opacity: opened ? 1 : 0,
+    scale: opened ? 1 : 0.85,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeInOut",
+  }}
+  className="
+    absolute
+    inset-0
+    z-30
+    flex
+    items-center
+    justify-center
+    px-4
+    py-4
+    pointer-events-none
+  "
+>
+  <div className="pointer-events-auto flex items-center justify-center w-full">
+    <Invitation opened={opened} />
+  </div>
+</motion.div>
 
         </>
       )}

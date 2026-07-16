@@ -26,8 +26,8 @@ export default function Invitation({ opened }: Props) {
         ease: "easeInOut",
       }}
       className="
-        w-[80vw]
-        max-w-[270px]
+        w-[86vw]
+        max-w-[310px]
         md:w-[330px]
         md:max-w-[330px]
         mx-auto
