@@ -38,17 +38,20 @@ export default function Invitation({ opened }: Props) {
           perspective: 2000,
         }}
         className="
-          relative
-          w-full
-          max-w-[520px]
-          min-h-[760px]
-          overflow-hidden
-          rounded-[34px]
-          border
-          border-[#d4af37]/20
-          bg-[#07111f]
-          shadow-[0_45px_120px_rgba(0,0,0,.65)]
-        "
+  relative
+  w-[92vw]
+  max-w-[460px]
+  md:max-w-[520px]
+  min-h-[650px]
+  md:min-h-[760px]
+  overflow-hidden
+  rounded-[30px]
+  border
+  border-[#d4af37]/20
+  bg-[#07111f]
+  shadow-[0_20px_60px_rgba(0,0,0,.45)]
+"
+        
       >
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#10213c] via-[#091728] to-[#050b14]" />
