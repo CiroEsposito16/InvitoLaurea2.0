@@ -12,3 +12,7 @@ body {
   padding: 0;
   overflow: hidden; /* Garantisce che non ci siano scrollbar extra */
 }
+* {
+  touch-action: manipulation;
+  box-sizing: border-box;
+}

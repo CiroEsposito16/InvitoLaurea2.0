@@ -30,9 +30,10 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // Rimosso h-full: lo gestiamo con dvh su body e main
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className={`${cormorant.className} min-h-full flex flex-col`}>
+      <body className={`${cormorant.className} h-dvh w-dvw overflow-hidden m-0 p-0`}>
         {children}
       </body>
     </html>

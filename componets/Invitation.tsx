@@ -35,7 +35,7 @@ export default function Invitation({ opened }: Props) {
           </div>
           <div className="p-4 border border-white/10 rounded-2xl bg-white/5">
             <p className="text-[9px] uppercase tracking-widest text-[#d4af37]">Luogo</p>
-            <p className="text-white mt-1">Univ. Studi di Salerno</p>
+            <p className="text-white mt-1">Università degli Studi di Salerno</p>
           </div>
         </div>
       </div>
