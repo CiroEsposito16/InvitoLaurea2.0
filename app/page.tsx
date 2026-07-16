@@ -20,53 +20,39 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-[#081221]">
-
+    <main className="relative h-dvh w-dvw overflow-hidden bg-[#081221]">
+      {/* Background sempre presente */}
       <Background />
 
       <AnimatePresence>
-
         {showIntro && (
           <motion.div
-            className="absolute inset-0 z-50 flex flex-col items-center justify-center"
+            className="absolute inset-0 z-50 flex flex-col items-center justify-center p-4 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            
             <motion.h1
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: 1.5 }}
-  className="
-    max-w-4xl
-    px-8
-    text-center
-    text-5xl
-    md:text-7xl
-    font-light
-    italic
-    tracking-wide
-    leading-relaxed
-    text-[#D8DEE8]
-  "
-  style={{
-    textShadow:
-      "0 0 12px rgba(216,222,232,.18), 0 0 35px rgba(216,222,232,.08)",
-  }}
->
-  « Diventa ciò che sei »
-</motion.h1>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+              className="max-w-4xl px-4 text-4xl md:text-7xl font-light italic tracking-wide leading-relaxed text-[#D8DEE8]"
+              style={{
+                textShadow:
+                  "0 0 12px rgba(216,222,232,.18), 0 0 35px rgba(216,222,232,.08)",
+              }}
+            >
+              « Diventa ciò che sei »
+            </motion.h1>
             <motion.p
-              className="mt-5 text-white/70 tracking-[0.2em]"
+              className="mt-5 text-white/70 tracking-[0.2em] text-sm md:text-base"
             >
               « Non è stato facile. E' stato mio »
             </motion.p>
           </motion.div>
         )}
-
       </AnimatePresence>
 
       {!showIntro && (
@@ -80,7 +66,7 @@ export default function Home() {
             transition={{
               duration: 1,
             }}
-            className="absolute inset-0 z-20 flex items-center justify-center"
+            className="absolute inset-0 z-20 flex items-center justify-center p-4"
           >
             <Envelope
               opened={opened}
@@ -90,17 +76,20 @@ export default function Home() {
 
           {/* INVITO */}
           <motion.div
-  animate={{
-    scale: opened ? 1 : 0.35,
-    opacity: opened ? 1 : 0,
-  }}
-  transition={{
-    duration: 1.4,
-  }}
->
-  <Invitation opened={opened} />
-</motion.div>
-          
+            initial={{ opacity: 0, scale: 0.35 }}
+            animate={{
+              scale: opened ? 1 : 0.35,
+              opacity: opened ? 1 : 0,
+            }}
+            transition={{
+              duration: 1.4,
+            }}
+            className="absolute inset-0 z-30 flex items-center justify-center p-4 pointer-events-none"
+          >
+            <div className="pointer-events-auto w-full max-w-lg">
+              <Invitation opened={opened} />
+            </div>
+          </motion.div>
         </>
       )}
     </main>

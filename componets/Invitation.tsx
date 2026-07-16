@@ -1,79 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { CalendarDays, GraduationCap, MapPin } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 type Props = {
   opened: boolean;
 };
 
 export default function Invitation({ opened }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: 9999,
-        padding: "10px",
-        pointerEvents: opened ? "auto" : "none",
-      }}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: opened ? 1 : 0, scale: opened ? 1 : 0.8 }}
+      transition={{ duration: 0.5 }}
+      // Abbiamo rimosso il posizionamento fisso: ora si adatta al div genitore in page.tsx
+      className="w-full max-w-[350px] bg-[#07111f] p-6 rounded-3xl border border-[#d4af37]/30 shadow-2xl overflow-y-auto max-h-[90dvh]"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: opened ? 1 : 0, scale: opened ? 1 : 0.8 }}
-        transition={{ duration: 0.5 }}
-        style={{
-          width: "100%",
-          maxWidth: "350px",
-          maxHeight: "90vh",
-          backgroundColor: "#07111f",
-          borderRadius: "20px",
-          border: "1px solid rgba(212, 175, 55, 0.3)",
-          overflowY: "auto",
-          padding: "20px",
-          color: "white",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-        }}
-      >
-        <div style={{ textAlign: "center" }}>
-          <p style={{ fontSize: "10px", letterSpacing: "2px", color: "#d4af37" }}>
-            CERIMONIA DI LAUREA
-          </p>
-          <h1 style={{ fontSize: "32px", margin: "10px 0" }}>Ciro</h1>
-          <h2 style={{ fontSize: "16px", color: "#d4af37" }}>ESPOSITO</h2>
-          
-          <div style={{ margin: "20px 0", borderTop: "1px solid #d4af37" }} />
-          
-          <GraduationCap size={40} style={{ margin: "0 auto", color: "#d4af37" }} />
-          <p style={{ marginTop: "10px" }}>Economia e Management</p>
+      <div className="flex flex-col items-center text-center">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-[#d4af37]">
+          Cerimonia di Laurea
+        </p>
+        <h1 className="text-4xl mt-2 font-serif text-white">Ciro</h1>
+        <h2 className="text-lg text-[#d4af37] font-medium tracking-widest">ESPOSITO</h2>
+        
+        <div className="w-full my-6 border-t border-[#d4af37]/50" />
+        
+        <GraduationCap size={40} className="text-[#d4af37] mb-3" />
+        <p className="text-sm text-white/90">Economia e Management</p>
 
-          <div style={{ marginTop: "20px", textAlign: "left" }}>
-            <div style={{ marginBottom: "10px", padding: "10px", border: "1px solid #333", borderRadius: "10px" }}>
-              <p style={{ fontSize: "9px", color: "#d4af37" }}>DATA</p>
-              <p>7 Settembre 2026</p>
-            </div>
-            <div style={{ padding: "10px", border: "1px solid #333", borderRadius: "10px" }}>
-              <p style={{ fontSize: "9px", color: "#d4af37" }}>LUOGO</p>
-              <p>Univ. Studi di Salerno</p>
-            </div>
+        <div className="w-full mt-6 space-y-3 text-left">
+          <div className="p-4 border border-white/10 rounded-2xl bg-white/5">
+            <p className="text-[9px] uppercase tracking-widest text-[#d4af37]">Data</p>
+            <p className="text-white mt-1">7 Settembre 2026</p>
+          </div>
+          <div className="p-4 border border-white/10 rounded-2xl bg-white/5">
+            <p className="text-[9px] uppercase tracking-widest text-[#d4af37]">Luogo</p>
+            <p className="text-white mt-1">Univ. Studi di Salerno</p>
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
